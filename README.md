@@ -188,12 +188,14 @@ console.log({ isCNLang, isCST, isEmojiMatch, isFontMatch });
 所有源代码版权归原作者 **[yArna](https://github.com/yArna)** 所有。
 
 ### 部署实例
-此 fork 被部署到 Cloudflare Pages 项目 `ischinauser`，服务在：
-- **ischinauser.antisubmissivist.com**（子域名，详见 [NOTICE.md](./NOTICE.md)）
+**ischinauser.antisubmissivist.com** 现由独立重写的站点提供服务
+（Next.js 全新实现，非本仓库代码，见 `ischinauser-site` 项目），
+本仓库回归纯 library fork 角色。历史部署背景见 [NOTICE.md](./NOTICE.md)。
 
 ### 自动同步（upstream sync）
-本仓库通过 GitHub Actions 每周 + 手动触发从 upstream 同步。详见
-[`.github/workflows/sync-upstream.yml`](./.github/workflows/sync-upstream.yml)。
+自动同步 workflow 已于 2026-07-02 **停用**（此前为每小时），
+避免覆盖 main 上的本地改动。需要同步时在 GitHub Actions 页面
+重新启用 [`sync-upstream.yml`](./.github/workflows/sync-upstream.yml) 手动跑一次即可。
 
 ### License 状态（截至 2026-07-02）
 原仓库 `yArna/isChinaUser` 当前 **没有 LICENSE 文件**，`package.json` 也
