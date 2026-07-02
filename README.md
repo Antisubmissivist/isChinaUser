@@ -155,3 +155,25 @@ console.log({ isCNLang, isCST, isEmojiMatch, isFontMatch });
 ## 示例站点
 
 [https://yarna.github.io/isChinaUser/](https://yarna.github.io/isChinaUser/)
+
+
+---
+
+## 部署与 fork 信息
+
+### 关于这个仓库
+这是一个 **fork** of [`yArna/isChinaUser`](https://github.com/yArna/isChinaUser)。
+所有源代码版权归原作者 **[yArna](https://github.com/yArna)** 所有。
+
+### 部署实例
+此 fork 被部署到 Cloudflare Pages 项目 `ischinauser`，服务在：
+- **ischinauser.antisubmissivist.com**（子域名，详见 [NOTICE.md](./NOTICE.md)）
+
+### 自动同步（upstream sync）
+本仓库通过 GitHub Actions 每周 + 手动触发从 upstream 同步。详见
+[`.github/workflows/sync-upstream.yml`](./.github/workflows/sync-upstream.yml)。
+
+### License 状态（截至 2026-07-02）
+原仓库 `yArna/isChinaUser` 当前 **没有 LICENSE 文件**，`package.json` 也
+未声明 `license` 字段。在原作者明确授权前，本 fork 仅作为其公开 GitHub
+Pages demo 演示用途的镜像。详见 [NOTICE.md](./NOTICE.md)。

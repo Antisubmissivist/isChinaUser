@@ -1,0 +1,40 @@
+name: Sync from upstream
+
+on:
+  # Manual trigger (run from GitHub Actions tab)
+  workflow_dispatch:
+  # Weekly schedule: every Sunday 00:00 UTC
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/yArna/isChinaUser.git
+          git remote -v
+
+      - name: Sync upstream -> fork (PR mode, no auto-merge)
+        uses: repo-sync/github-sync@v2
+        with:
+          upstream_repo: yArna/isChinaUser
+          upstream_branch: main
+          downstream_repo: Antisubmissivist/isChinaUser
+          downstream_branch: main
+          sync_method: rebase
+          create_pull_request: true
+          pull_request_labels: upstream-sync, automated
+          pull_request_title_prefix: "[upstream-sync] "
